@@ -1,50 +1,19 @@
-# Stage 1: Build and install packages
-FROM ubuntu:20.04 as builder
+FROM ultralytics/ultralytics:latest-cpu
 
-# Avoid interactive dialog during build
-ARG DEBIAN_FRONTEND=noninteractive
-
-# Update and install necessary packages
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    python3-pip \
-    python3-dev \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
-
-# Upgrade pip
-RUN python3 -m pip install --upgrade pip
-
-# Install OpenVINO and Ultralytics
-RUN pip install openvino-dev ultralytics
-
-# Stage 2: Create minimal runtime image
-FROM ubuntu:20.04
-
-# Copy installed packages from builder stage
-COPY --from=builder /usr/local /usr/local
-
-# Set up environment variables
-ENV PATH="/usr/local/bin:${PATH}"
-ENV PYTHONPATH="/usr/local/lib/python3.8/site-packages:${PYTHONPATH}"
-
-# Install runtime dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    python3-minimal \
-    libgomp1 \
-    && rm -rf /var/lib/apt/lists/*
-
-# Set the working directory
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy the entrypoint script into the container
+# Copy the Python script and entrypoint script into the container
 COPY entrypoint.sh /app/
-COPY testdata /app/
+COPY orig_pytorch_model /app/orig_pytorch_model/
+COPY best_openvino_model /app/best_openvino_model/
+COPY testdata /app/testdata/
 
-# Make sure the script is executable
-RUN chmod +x /entrypoint.sh
+# Make the entrypoint script executable
+RUN chmod +x /app/entrypoint.sh
 
-# Set the entrypoint to run your script
+# Set the entrypoint to use the script
 ENTRYPOINT ["/app/entrypoint.sh"]
 
-# The CMD can be used to provide default arguments to the entrypoint script
+# Default command (can be overridden)
 CMD []
