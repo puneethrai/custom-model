@@ -1,0 +1,16 @@
+description: Ultralytics YOLOv8m-cls model trained on data
+author: Ultralytics
+license: AGPL-3.0 https://ultralytics.com/license
+date: '2024-02-01T04:43:31.238912'
+version: 8.1.8
+stride: 1
+task: classify
+batch: 1
+imgsz:
+- 224
+- 224
+names:
+  0: core
+  1: evo
+  2: graphics
+  3: xeon
