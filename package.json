@@ -6,6 +6,7 @@
   "scripts": {},
   "author": "intel",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
     "@tiber/edge-devtoolbox": "file:tiber-edge-devtoolbox-1.0.1-alpha.57.tgz"
   }
