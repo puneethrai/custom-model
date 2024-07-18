@@ -1,0 +1,12 @@
+{
+  "name": "custom-model",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "intel",
+  "license": "ISC",
+  "dependencies": {
+    "@tiber/edge-devtoolbox": "file:tiber-edge-devtoolbox-1.0.1-alpha.57.tgz"
+  }
+}
