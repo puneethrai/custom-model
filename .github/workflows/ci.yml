@@ -24,4 +24,4 @@ jobs:
     - name: Run custom script
       run: node index.js  
       env:
-        API_SECRET_KEY: ${{ secrets.MY_SECRET_KEY }}
+        API_SECRET_KEY: ${{ secrets.API_KEY }}
