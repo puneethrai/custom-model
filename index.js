@@ -1,1 +1,1 @@
-console.log('Index js log is displayed')
+const API_KEY = process.env.API_KEY;
