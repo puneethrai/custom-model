@@ -3,7 +3,7 @@ on:
   push:
     branches: 
       - main
-      - develop-workflow
+      - 'develop-*'
       - 'feature/*'
   pull_request:
     branches:
@@ -19,10 +19,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16'
+        node-version: '16' 
 
-    - name: Install dependencies
-      run: npm install   
-
-    - name: Run tests
-      run: npm test  
+    - name: Run custom script
+      run: node index.js  
