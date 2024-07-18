@@ -1,3 +1,3 @@
-const API_KEY = process.env.API_KEY;
+const mySecretKey = process.env.MY_SECRET_KEY;
 
-console.log('ENV_VAR:', API_KEY);
+console.log('MY_SECRET_KEY:', mySecretKey);
