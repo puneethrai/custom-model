@@ -11,7 +11,6 @@ function getEdgeDevToolBox() {
     let axioHttpService = new AxioHttpService({
         accessToken: token,
         baseURL: 'https://frontend-staging.apps1.dtb.one-edge.intel.com',
-        debug: !environment.production,
         timeout: 30000
     });
      
