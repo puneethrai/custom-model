@@ -1,7 +1,7 @@
 
 import { AxioHttpService, Devtoolbox } from '@tiber/edge-devtoolbox';
 
-const mySecretKey = process.env.API_KEY;
+const mySecretKey = 'dtb_user_4cc5f16f46bf4d34a1d952fd2ef647a3' //process.env.API_KEY;
 
 console.log('MY_SECRET_KEY:', mySecretKey);
 
